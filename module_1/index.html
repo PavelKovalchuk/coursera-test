@@ -1,29 +1,49 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <style>
-      .message { font-size: 1.3em; font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    
   </head>
-<body>
-   <div class="container">
-     <h1>Lunch Checker</h1>
+  <body ng-app="app">
+        <div class="container" ng-controller="LunchCheckController">
+            <h1>Lunch Checker</h1>
 
-         <div class="form-group">
-             <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
-         </div>
-         <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
-         </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
-         </div>
-   </div>
+            <div class="row">
+                
+                <div class="form-group input-outer col-sm-8">
+                    <input id="lunch-menu" type="text"
+                    placeholder="list comma separated dishes you usually have for lunch"
+                    class="form-control"
+                    ng-model="dishes">
+                </div>
+                
+                <ol class="dishes-items col-sm-4">
+                    
+                    <li  ng-repeat="item in items">
+                        {{item}}
+                    </li>
+                </ol>
+                
+            </div>
+           
+            <div class="form-group">
+                <button class="btn btn-default" ng-click="countDishes()">Check If Too Much</button>
+                <span class="bg-info" ng-if="showComment">{{comment}}</span>
+              
+            </div>
+            
+            <div class="form-group message {{messageClass}}" ng-show="showMessage">
+             
+              <button type="button" class="close close-custom" ng-click="closeMessage()"><span aria-hidden="true">Hide message!</span></button>
+              {{message}}
+            </div>
+        </div>
 
 </body>
 </html>
