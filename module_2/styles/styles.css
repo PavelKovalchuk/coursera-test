@@ -1,0 +1,39 @@
+ .message { 
+    font-size: 1.3em;
+    font-weight: bold;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+ }
+ 
+ .message-success{
+     color: #1fc81f;
+     border: 1px solid #1fc81f;
+ }
+ 
+ .message-error{
+     color: red;
+     border: 1px solid red;
+ }
+ 
+ .close-custom{
+     position: absolute;
+     top:0;
+     right: 0;
+     font-size: 12px;
+     margin:5px;
+ }
+ 
+ .input-outer{
+/*    width: 50%;
+    float: left;
+    display: inline-block;*/
+ }
+ 
+ .dishes-items{
+/*    width: 40%;
+    float: right;
+    display: inline-block;*/
+ }
