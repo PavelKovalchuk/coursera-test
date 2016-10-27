@@ -17,19 +17,25 @@ function NarrowItDownController(MenuSearchService){
     list.found = '';
     list.showMessage = false;
     list.quantity = 0;
+    list.showPreloader = false;
        
     list.getItems = function(){
        
+        list.showPreloader = true;
+        list.showMessage = false;
+        
         if(list.searchTerm === ''){
             list.showMessage = true;
             list.quantity = 0;
             list.found = '';
+            list.showPreloader = false;
             return;
         }
        
         MenuSearchService.getMatchedMenuItems(list.searchTerm.toLowerCase()).then(
             function(response){
                 list.found = response;
+                list.showPreloader = false;
                 if(list.found.length == 0){
                     list.showMessage = true;
                 }else{
@@ -107,7 +113,8 @@ function FoundItems() {
       found: '<',
       showMessage: '<',
       removeItem: '&',
-      quantity: '<'
+      quantity: '<',
+      showPreloader: '<'
       
      
     },
