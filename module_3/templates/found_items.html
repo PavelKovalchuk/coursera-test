@@ -1,0 +1,22 @@
+<div class="row col-sm-12">
+    <h3 ng-if="Dirlist.quantity > 0">Result: {{Dirlist.quantity}} items</h3>
+    
+    <table class="table table-hover">
+      <tr ng-repeat="item in Dirlist.found">
+
+        <td class="info">{{ $index + 1 }}</td>
+
+        <td class="success">{{ item.name }}</td>
+
+        <td class="warning">{{ item.description }}</td> 
+
+        <td class="active">{{ item.short_name }}</td> 
+        
+        <td class="error"><button class="btn btn-danger" ng-click="Dirlist.removeItem({index: $index})">Don't want this one!</button></td> 
+
+      </tr>
+    </table>
+
+    <div class="error" ng-if="Dirlist.showMessage">Nothing found!!!<br> Try again!</div>
+
+</div>

@@ -6,8 +6,8 @@ input[type="text"] {
   float: left;
 }
 .narrow-button {
-  float: left;
-  margin-left: 10px;
+/*  float: left;
+  margin-left: 10px;*/
 }
 .loader {
   display: none;
@@ -30,6 +30,16 @@ input[type="text"] {
   width: 3em;
   height: 3em;
 }
+
+.error{
+    display: block;
+    text-align: center;
+    color: red;
+    background-color: black;
+    padding: 20px;
+    font-size: 3em;
+}
+
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);

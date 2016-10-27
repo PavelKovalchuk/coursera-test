@@ -10,24 +10,20 @@
       <div class="container" ng-controller="NarrowItDownController as NIDCtrl">
         
         <h1>Narrow Down Your Chinese Menu Choice</h1>
+        <div class="row col-sm-12">
+            <div class="col-sm-3 form-group">
+                <input type="text" placeholder="search term" class="form-control" ng-model="NIDCtrl.searchTerm">
+            </div>
 
-        <div class="form-group">
-            <input type="text" placeholder="search term" class="form-control">
+            <div class="col-sm-9 form-group narrow-button">
+                <button class="btn btn-primary" ng-click="NIDCtrl.getItems()">Narrow It Down For Me!</button>
+            </div>
         </div>
-     
-        <div class="form-group narrow-button">
-            <button class="btn btn-primary" ng-click="NIDCtrl.getItems()">Narrow It Down For Me!</button>
-        </div>
-        
-        <ul>
-            <li ng-repeat="item in NIDCtrl.items">
-                {{item.description}}
-            </li>
-        </ul>
+        <found-items found="NIDCtrl.found" quantity="NIDCtrl.quantity" remove-item="NIDCtrl.removeItem(index)" show-message="NIDCtrl.showMessage" ></found-items>
 
      <!-- found-items should be implemented as a component -->
-     <found-items found-items="...." on-remove="...."></found-items>
      
+        
    </div>
  
     
