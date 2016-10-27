@@ -66,8 +66,8 @@ function MenuSearchService($http, ApiBasePath){
     service.getMatchedMenuItems = function(searchTerm){
         
         return $http({
-            method: "POST",
-            url: (ApiBasePath + '/menu_items.json'),
+            method: "GET",
+            url: (ApiBasePath + '/menu_items.json/'),
             
         }).then( function(response){
             var foundItems = service.findSearchTerm(response.data.menu_items, searchTerm);
