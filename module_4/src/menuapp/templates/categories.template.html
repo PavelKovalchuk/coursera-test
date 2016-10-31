@@ -1,0 +1,9 @@
+<h2>This is the categories template!!!</h2>
+
+<ul>
+    <li ng-repeat="item in catList.catItems"
+      ui-sref="categories({catId: $index})"
+    >
+        {{ item.name }}
+    </li>
+</ul>
