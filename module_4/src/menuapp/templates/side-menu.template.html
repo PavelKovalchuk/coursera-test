@@ -1,6 +1,6 @@
-<h2 ng-init="sideLlist.getItems()">Side Menu</h2>
+<h2>Side Menu</h2>
 
-<ul class="list-group">
+<ul ng-init="sideLlist.getItems()" class="list-group">
     <li class="list-group-item" ng-repeat="item in sideLlist.items">
         <a ui-sref="dishes({ShortName: item.short_name})" ui-sref-active="activeSideLink">{{item.name}}</a>
     </li>
