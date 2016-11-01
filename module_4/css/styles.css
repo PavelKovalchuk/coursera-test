@@ -52,6 +52,14 @@ body {
     padding: 20px 10px;
 }
 
+div.footer{
+    min-height: 100px;
+/*    background-color: brown;*/
+    color: white;
+/*    text-align: center;
+    font-size: 3em;*/
+}
+
 /*.loading-icon {
   position: absolute;
   left: 50%;
