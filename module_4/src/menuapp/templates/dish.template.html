@@ -1,3 +1,10 @@
+<ol class="breadcrumb">
+  <li><a ui-sref="home">Home</a></li>
+  <li><a ui-sref="categories">Categories</a></li>
+  <li><a ui-sref="dishes({ShortName: dish.dishCategory.short_name})">{{dish.dishCategory.name}}</a></li>
+  <li class="active">{{dish.dishItem.name}}</li>
+</ol>
+
 <div class="page-heading">
     <h3>Welcome to the dish-page!</h3>
 </div>
