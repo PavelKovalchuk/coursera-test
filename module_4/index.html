@@ -28,10 +28,18 @@
             </nav>
         </div>
         
-          
-            <ui-view></ui-view>
-
-        
+        <div class="row">
+            
+            <div class="col-sm-3">
+                 <side-menu-list></side-menu-list>
+            </div>
+            
+            <div class="col-sm-9">
+                <ui-view></ui-view>
+            </div>
+            
+        </div>
+                   
         <footer class="row">
             <div class="footer"> </div>
         </footer>
@@ -58,6 +66,8 @@
    <script src="src/menuapp/dishes.component.js"></script>
    <script src="src/menuapp/dish.controller.js"></script>
    <script src="src/menuapp/dish.component.js"></script>
-
+   <script src="src/menuapp/sideMenu.directive.js"></script>
+   <script src="src/menuapp/sideMenuList.controller.js"></script>
+   
   </body>
 </html>
