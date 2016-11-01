@@ -1,0 +1,22 @@
+<div class="header-info bg-info">
+    {{$ctrl.header | uppercase}} 
+    <span class="bg-primary">{{$ctrl.category.name | uppercase}}</span>
+     | <span class="bg-primary">{{$ctrl.category.short_name}}</span>
+     <div class="text-warning" ng-if="$ctrl.category.special_instructions">{{$ctrl.category.special_instructions}}</div>
+</div>
+
+<div class="dishes-list row">
+    <div class="alert alert-success col-sm-8 col-sm-offset-2" role="alert">
+        <div class="col-sm-1">#</div>
+        <div class="col-sm-3">Name</div>
+        <div class="col-sm-2">Short Name</div>
+        <div class="col-sm-2">Action</div>
+    </div>
+    <div class="dish col-sm-8 col-sm-offset-2" ng-repeat="item in $ctrl.dishItems">
+        <div class="dish-index col-sm-1">{{ $index +1 }}</div>
+        <div class="dish-name col-sm-3">{{ item.name }}</div>
+        <div class="dish-short_name col-sm-2"> {{ item.short_name }}</div>
+        <div class="dish-button col-sm-2"><a ui-sref="dish({ShortName: $ctrl.category.short_name, itemId:item.id })"> Detail</a></div>
+      
+    </div>
+</div>

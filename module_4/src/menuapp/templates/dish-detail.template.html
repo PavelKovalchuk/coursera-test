@@ -1,0 +1,42 @@
+<div class="header-info bg-info">
+    {{$ctrl.header | uppercase}} 
+    <span class="bg-primary">{{$ctrl.dishItem.name | uppercase}}</span>
+     | <span class="bg-primary">{{$ctrl.dishItem.short_name}}</span>
+     <div class="text-warning" ng-if="$ctrl.category.special_instructions">{{$ctrl.category.special_instructions}}</div>
+</div>
+
+<div class="row">
+    
+    <div class="dish col-sm-8 col-sm-offset-2">
+        <table class="table table-hover">
+            <tr>
+                <td>id</td><td>{{ $ctrl.dishItem.id }}</td>
+            </tr>
+            <tr>
+                <td>Short Name</td><td>{{ $ctrl.dishItem.short_name }}</td>
+            </tr>
+            <tr>
+                <td>Name</td><td>{{ $ctrl.dishItem.name }}</td>
+            </tr>
+            <tr ng-if="$ctrl.dishItem.description">
+                <td>description</td><td>{{ $ctrl.dishItem.description }}</td>
+            </tr>
+            <tr ng-if="$ctrl.dishItem.small_portion_name">
+                <td>Small portion name</td><td>{{ $ctrl.dishItem.small_portion_name }}</td>
+            </tr>
+            <tr ng-if="$ctrl.dishItem.price_small">
+                <td>Price small</td><td>{{ $ctrl.dishItem.price_small | currency:"USD$"}}</td>
+            </tr>
+            <tr ng-if="$ctrl.dishItem.large_portion_name">
+                <td>Large portion name</td><td>{{ $ctrl.dishItem.large_portion_name }}</td>
+            </tr>
+            <tr ng-if="$ctrl.dishItem.price_large">
+                <td>Price large</td><td>{{ $ctrl.dishItem.price_large | currency:"USD$"}}</td>
+            </tr>
+            <tr>
+                <td>Category</td><td><a ui-sref="dishes({ShortName: $ctrl.category.short_name})">{{$ctrl.category.name | uppercase}}</a></td>
+            </tr>
+        </table>
+             
+    </div>
+</div>

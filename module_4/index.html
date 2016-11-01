@@ -2,14 +2,37 @@
 <html ng-app='MenuApp'>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <title>Restaurant's Menu</title>
   </head>
   <body>
-    <h1>Welcome to our Menu</h1>
+    <div class="container-fluid">
+        <div class="jumbotron welcome">
+            <h1 class="site-header">Welcome to our Restaurant</h1>
+        
+            <nav class="navbar navbar-default navbar-custom">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a ui-sref="home" ui-sref-active="activeLink">Home</a>
+                            </li>
 
-    <ui-view></ui-view>
+                            <li>
+                                <a ui-sref="categories" ui-sref-active="activeLink">Categories</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+          
+            <ui-view></ui-view>
 
+        
+    </div>
     <!-- Libraries -->
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
@@ -23,12 +46,14 @@
 
     <!-- 'data' module artifacts -->
     <script src="src/data/menudata.service.js"></script>
-    <!-- <script src="src/shoppinglist/main-shoppinglist.controller.js"></script>-->
-    <!-- <script src="src/shoppinglist/shoppinglist.service.js"></script>-->
-   <!--  <script src="src/shoppinglist/item-detail.controller.js"></script>-->
-   
+      
    <!-- 'menuapp' module artifacts -->
-    <script src="src/menuapp/categories-list.controller.js"></script>
+   <script src="src/menuapp/categories-list.controller.js"></script>
+   <script src="src/menuapp/categories.component.js"></script>
+   <script src="src/menuapp/dishes-list.controller.js"></script>
+   <script src="src/menuapp/dishes.component.js"></script>
+   <script src="src/menuapp/dish.controller.js"></script>
+   <script src="src/menuapp/dish.component.js"></script>
 
   </body>
 </html>

@@ -1,0 +1,11 @@
+<div class="header-info bg-info">{{$ctrl.header | uppercase}}</div>
+
+<div class="categories-list row">
+    <div class="category col-sm-12" ng-repeat="item in $ctrl.catItems">
+        <div class="category-index col-sm-1">{{ $index +1 }}</div>
+        <div class="category-short_name col-sm-1">{{ item.short_name }}</div>
+        <div class="category-name col-sm-4"> <a ui-sref="dishes({ShortName: item.short_name})">{{ item.name }}</a></div>
+        <div class="category-description col-sm-6">{{ item.special_instructions }}</div>
+    </div>
+</div>
+

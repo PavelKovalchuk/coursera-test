@@ -1,11 +1,55 @@
 body {
-  font-size: 1.2em;
+  font-size: 1.7em;
 }
 
 .error {
   color: red;
   font-weight: bold;
   display: none;
+}
+
+.activeLink {
+  font-weight: bold;
+  /*color: red;*/
+  background-color: bisque;
+}
+
+.activeLink:focus{
+    color: red;
+}
+
+.navbar-default .navbar-nav>li>a.activeLink:focus{
+     background-color: bisque;
+}
+
+.navbar-custom{
+    margin-bottom: -48px;
+    width: 100%;
+}
+
+.category{
+    border-bottom: 1px solid brown;
+    padding: 10px 0;
+}
+
+.header-info{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.jumbotron.welcome{
+    text-align: center;
+    color: brown;
+    border: 2px solid brown;
+}
+
+.page-heading{
+    text-align: center;
+    padding: 20px 10px;
 }
 
 /*.loading-icon {
