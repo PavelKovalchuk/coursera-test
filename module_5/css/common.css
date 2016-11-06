@@ -18,3 +18,21 @@
 .ui-view-placeholder {
     margin-top: 60px;
 }
+
+
+input.ng-invalid {
+    background-color: pink;
+}
+input.ng-valid {
+    background-color: lightgreen;
+}
+input.ng-pristine {
+    background-color: whitesmoke;
+}
+
+.danger-info{
+    background-color: #909210;
+    font-style: italic;
+    font-weight: 700;
+}
+

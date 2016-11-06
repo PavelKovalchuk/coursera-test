@@ -41,6 +41,17 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
+    .state('public.signup', {
+      url: '/sighup',
+      templateUrl: 'src/public/signup/formSignup.html',
+      controller: 'SignUpController',
+      controllerAs: 'signUpCtrl'
+//      resolve: {
+//        menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
+//          return MenuService.getMenuItems($stateParams.category);
+//        }]
+//      }
+    })
     ;
 }
 })();
