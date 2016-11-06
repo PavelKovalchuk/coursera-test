@@ -8,6 +8,8 @@ angular.module('common')
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {
   var service = this;
+  
+  service.user = '';
 
   service.getCategories = function () {
     return $http.get(ApiPath + '/categories.json').then(function (response) {
@@ -30,14 +32,6 @@ function MenuService($http, ApiPath) {
   service.getMenuItemByShortName = function (shortName) {
     
         return $http.get(ApiPath + '/menu_items/' + shortName + '.json');
-//                .then(function (response) {
-//                        console.log(response.data);
-//                        return response.data;
-//                    },function (response) {
-//                        console.log('false');
-//                        return response;
-//                    }
-//                );
    
   };
 

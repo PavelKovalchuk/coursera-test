@@ -36,3 +36,10 @@ input.ng-pristine {
     font-weight: 700;
 }
 
+.success-info{
+    background-color: #30a479;
+    font-style: italic;
+    font-weight: 700;
+    
+}
+

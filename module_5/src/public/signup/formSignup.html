@@ -136,6 +136,10 @@
                     ng-click="signUpCtrl.submit()">
                     Submit
                 </button>
+                  
+                <span class="success-info" ng-if="signUpCtrl.displayFinishMessage">
+                    {{signUpCtrl.finishMessage}}
+                </span>
               </div>
             </div>
              <!--ng-disabled="signUpForm.$invalid || !signUpCtrl.user.ready"-->

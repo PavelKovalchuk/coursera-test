@@ -8,11 +8,15 @@ SignUpController.$inject = ['MenuService'];
 function SignUpController(MenuService) {
   var signUpCtrl = this;
   
-//  signUpCtrl.data = '';
-  
+  signUpCtrl.user = '';
+    
   signUpCtrl.itemMessage = 'No such menu number exists';
   
+  signUpCtrl.finishMessage = 'Your information has been saved! You can go to My Info link to check data';
+  
   signUpCtrl.displayItemMessage = false;
+  
+  signUpCtrl.displayFinishMessage = false;
 
   signUpCtrl.submit = function () {
        
@@ -21,12 +25,14 @@ function SignUpController(MenuService) {
           MenuService.getMenuItemByShortName(signUpCtrl.user.favoriteDish)
           
           .then(function (response) {
-                        console.log(response.data);
-                signUpCtrl.data = response.data;
+                        signUpCtrl.user.data = response.data;
+                        console.log(signUpCtrl.user);
+                        MenuService.user = signUpCtrl.user; //////////////
+                        signUpCtrl.displayFinishMessage = true;
                         return response.data;
                     },function (response) {
-                        console.log('false');
-                        console.log(response);
+                        signUpCtrl.displayItemMessage = true;
+                        signUpCtrl.displayFinishMessage = false;
                         return response;
                     }
                 );
