@@ -43,3 +43,28 @@ input.ng-pristine {
     
 }
 
+.user-info{
+    color: #61122f;
+}
+
+.header-info{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.block-info{
+    font-size: 1.2em;
+    font-weight: 600;
+   
+}
+
+a{
+    color:#db3770;
+}
+
+.line-info{
+    border: 1px solid darkgray;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+

@@ -34,6 +34,16 @@ function MenuService($http, ApiPath) {
         return $http.get(ApiPath + '/menu_items/' + shortName + '.json');
    
   };
+  
+  service.getRegisteredInfo = function () {
+        if( service.user !== ''){
+            return service.user;
+        }else{
+            return false;
+        }
+        
+   
+  };
 
 }
 

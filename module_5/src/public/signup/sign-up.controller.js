@@ -12,7 +12,9 @@ function SignUpController(MenuService) {
     
   signUpCtrl.itemMessage = 'No such menu number exists';
   
-  signUpCtrl.finishMessage = 'Your information has been saved! You can go to My Info link to check data';
+  signUpCtrl.finishMessage = 'Your information has been saved! Check data in ';
+  
+  signUpCtrl.regInfoLink = 'My Info link';
   
   signUpCtrl.displayItemMessage = false;
   
