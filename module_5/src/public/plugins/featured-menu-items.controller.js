@@ -16,7 +16,7 @@ function featuredMenuItemsController(ApiPath, MenuService) {
             
             MenuService.getFeaturedItems(categoryShortName).
                 then(function (response) {
-                    console.log(response.data);
+
                     list.CategoryData  = response.data;
 //                    console.log(MenuService.getRandomItem(0, (response.data.menu_items.length - 1)));
 
