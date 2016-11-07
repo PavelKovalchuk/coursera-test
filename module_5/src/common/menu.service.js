@@ -44,6 +44,16 @@ function MenuService($http, ApiPath) {
         
    
   };
+  
+  service.getCategory = function (shortName) {
+      
+        if(shortName){
+            
+            return $http.get(ApiPath + '/categories/' + shortName + '.json');
+   
+        }
+    
+  };
 
 }
 

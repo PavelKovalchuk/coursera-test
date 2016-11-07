@@ -19,32 +19,60 @@ function SignUpController(MenuService) {
   signUpCtrl.displayItemMessage = false;
   
   signUpCtrl.displayFinishMessage = false;
+  
+  signUpCtrl.existFavoriteDish = false;
 
+  
   signUpCtrl.submit = function () {
        
       if (signUpCtrl.user.favoriteDish) {
-          signUpCtrl.displayItemMessage = false;
-          MenuService.getMenuItemByShortName(signUpCtrl.user.favoriteDish)
           
-          .then(function (response) {
-                        signUpCtrl.user.data = response.data;
-                        console.log(signUpCtrl.user);
-                        MenuService.user = signUpCtrl.user; //////////////
-                        signUpCtrl.displayFinishMessage = true;
-                        return response.data;
-                    },function (response) {
-                        signUpCtrl.displayItemMessage = true;
-                        signUpCtrl.displayFinishMessage = false;
-                        return response;
-                    }
-                );
+            signUpCtrl.displayItemMessage = false;
           
+            MenuService.user = signUpCtrl.user;
+            
+            if(signUpCtrl.user.data){
+                signUpCtrl.displayFinishMessage = true;
+            }else{
+                signUpCtrl.displayFinishMessage = false;
+            }
+         
       }else{
           signUpCtrl.displayItemMessage = true;
       }
       
     
   };
+  
+  signUpCtrl.checkFavoriteDish = function () {
+      
+        if (signUpCtrl.user.favoriteDish) {
+              
+          signUpCtrl.displayItemMessage = false;
+          
+          MenuService.getMenuItemByShortName(signUpCtrl.user.favoriteDish)
+          
+          .then(function (response) {
+                        
+                        signUpCtrl.user.data = response.data;
+                
+                        signUpCtrl.existFavoriteDish = true;
+                          
+//                        console.log(signUpCtrl.user);
+
+                    },function (response) {
+                        signUpCtrl.displayItemMessage = true;
+                        signUpCtrl.existFavoriteDish = false;
+
+                    }
+                );
+          
+      }
+    
+      
+  };
+  
+  
 }
 
 })();

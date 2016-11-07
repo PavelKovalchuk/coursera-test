@@ -43,13 +43,24 @@
                       
                         <h4 class="header-info">{{infoCtrl.user.data.name}}</h4>
                         <div class="col-sm-12 line-info"><div class="col-sm-4 block-info">Description</div><div class="col-sm-8">{{infoCtrl.user.data.description}}</div></div>
-                        <div class="col-sm-12 line-info"><div class="col-sm-4 block-info">Category short name</div><div class="col-sm-8">{{infoCtrl.user.data.category_short_name}}</div></div>
                         <div class="col-sm-12 line-info">
+                            <div class="col-sm-4 block-info">Category</div>
+                            <div class="col-sm-8" ng-init="infoCtrl.getCategoryData(infoCtrl.user.data.category_short_name)">
+                                <a ui-sref="public.menuitems({category: infoCtrl.user.data.category_short_name})" ng-if="infoCtrl.CategoryData">{{infoCtrl.CategoryData.name}}</a>
+                            </div>
+                                
+                        </div>
+                        <div class="col-sm-12 line-info" ng-if="infoCtrl.user.data.small_portion_name">
                             <div class="col-sm-4 block-info">Price for {{infoCtrl.user.data.small_portion_name}}</div>
                             <div class="col-sm-8">{{infoCtrl.user.data.price_small | currency:"USD$"}}</div>
                         </div>
-                        <div class="col-sm-12 line-info">
+                        <div class="col-sm-12 line-info" ng-if="infoCtrl.user.data.large_portion_name">
                             <div class="col-sm-4 block-info">Price for {{infoCtrl.user.data.large_portion_name}}</div>
+                            <div class="col-sm-8">{{infoCtrl.user.data.price_large | currency:"USD$"}}</div>
+                        </div>
+                        
+                        <div class="col-sm-12 line-info" ng-if="!infoCtrl.user.data.small_portion_name">
+                            <div class="col-sm-4 block-info">Price </div>
                             <div class="col-sm-8">{{infoCtrl.user.data.price_large | currency:"USD$"}}</div>
                         </div>
                                              

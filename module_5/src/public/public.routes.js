@@ -54,9 +54,9 @@ function routeConfig ($stateProvider) {
         controller: 'RegInfoController',
         controllerAs: 'infoCtrl',
         resolve: {
-          userData: ['MenuService', function ( MenuService) {
-            return MenuService.getRegisteredInfo();
-          }]
+            userData: ['MenuService', function ( MenuService) {
+              return MenuService.getRegisteredInfo();
+            }]
         }
     })
     ;
