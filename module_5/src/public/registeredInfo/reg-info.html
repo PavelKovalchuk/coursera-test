@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-full">
     
     <div class="col-sm-8 col-sm-offset-2">
        
@@ -36,13 +36,16 @@
                 <div class="media">
                     <div class="media-left">
                         
-                        <img class="media-object" ng-src="{{infoCtrl.apiPath}}/images/{{infoCtrl.user.data.short_name}}.jpg" alt="{{infoCtrl.user.data.name}}">
+                        <img class="media-object " ng-src="{{infoCtrl.apiPath}}/images/{{infoCtrl.user.data.short_name}}.jpg" alt="{{infoCtrl.user.data.name}}">
                      
                     </div>
                     <div class="media-body">
                       
                         <h4 class="header-info">{{infoCtrl.user.data.name}}</h4>
-                        <div class="col-sm-12 line-info"><div class="col-sm-4 block-info">Description</div><div class="col-sm-8">{{infoCtrl.user.data.description}}</div></div>
+                        <div class="col-sm-12 line-info">
+                            <div class="col-sm-4 block-info">Description</div>
+                            <div class="col-sm-8">{{infoCtrl.user.data.description}}</div>
+                        </div>
                         <div class="col-sm-12 line-info">
                             <div class="col-sm-4 block-info">Category</div>
                             <div class="col-sm-8" ng-init="infoCtrl.getCategoryData(infoCtrl.user.data.category_short_name)">
@@ -68,6 +71,8 @@
                 </div>
                 
             </div>
+            
+                       
         </div>
         
         
@@ -85,6 +90,11 @@
         </div>
         
     </div>
+    
+    <div class="col-sm-12" ng-if="infoCtrl.user">
+        <featured-menu-items category="infoCtrl.user.data.category_short_name"></featured-menu-items>
+    </div>
+    
     
    
     

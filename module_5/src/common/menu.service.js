@@ -54,6 +54,22 @@ function MenuService($http, ApiPath) {
         }
     
   };
+  
+  service.getFeaturedItems = function (category) {
+        
+        if (category) {
+            return $http.get(ApiPath + '/menu_items.json' + '?category=' + category);
+        }
+
+  };
+  
+   service.getRandomItem = function (min, max) {
+         
+       return Math.floor(Math.random() * (max - min + 1)) + min;
+     
+  };
+  
+  
 
 }
 

@@ -68,3 +68,12 @@ a{
     margin-bottom: 10px;
 }
 
+.container-full.container{
+    width: 100%;
+}
+
+.navbar-default #nav-list.navbar-nav>.active>a{
+    background-color: #4dd545;
+    color: black;
+}
+

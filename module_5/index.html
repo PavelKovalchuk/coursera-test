@@ -50,11 +50,11 @@
                 <a ui-sref="public.menu">
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
-              <li>
+              <li ui-sref-active="active">
                 <a ui-sref="public.registeredInfo">
                   <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs">My Info</a>
               </li>
-              <li>
+              <li ui-sref-active="active">
                 <a ui-sref="public.signup">
                   <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign Up</a>
               </li>
@@ -135,7 +135,8 @@
     <script src="src/public/signup/sign-up.controller.js"></script>
     <script src="src/public/registeredInfo/registered-info.controller.js"></script>
     
-    
+    <script src="src/public/plugins/featured-menu-items.directive.js"></script>
+    <script src="src/public/plugins/featured-menu-items.controller.js"></script>
     
 
     <!-- ADMIN SITE -->

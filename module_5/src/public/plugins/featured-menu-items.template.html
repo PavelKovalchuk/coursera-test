@@ -1,0 +1,7 @@
+
+<h1 class="header-info" ng-init="list.getCategoryData(list.category)"> You may also like another dishes from category {{list.CategoryData.category.name}}</h1>
+
+
+<menu-item ng-repeat="menuItem in list.CategoryData.menu_items | orderBy:name | limitTo:4"
+             menu-item="menuItem">
+</menu-item>
