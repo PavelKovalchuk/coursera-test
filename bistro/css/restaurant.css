@@ -18,8 +18,9 @@ body {
 
 #logo-img {
   background: url('../images/restaurant-logo_large.png') no-repeat;
-  width: 150px;
-  height: 150px;
+  background-size: contain;
+  width: 80px;
+  height: 80px;
   margin: 10px 15px 10px 0;
 }
 
@@ -148,6 +149,30 @@ a.list-group-item{
     padding-right: 5%;
 }
 
+body{
+    padding-top: 120px;
+}
+
+.table-hover>tbody>tr:hover{
+    background-color: #6eecb2;
+    color: black;
+}
+
+a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, button.list-group-item:hover{
+    background-color: #6eecb2;
+    color: black;
+}
+
+.button-filter{
+    background-color: #4dd545;
+    border: 1px solid #d7f417;
+    color: #fff;
+}
+
+.button-filter:hover{
+    background-color: #6eecb2;
+    color: black;
+}
 
 
 

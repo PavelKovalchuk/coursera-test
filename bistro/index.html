@@ -17,7 +17,7 @@
     <loading class="loading-indicator"></loading>
 
     <header>
-      <nav id="header-nav" class="navbar navbar-default">
+      <nav id="header-nav" class="navbar navbar-default navbar-fixed-top">
         <div class="container container-full container-header">
           <div class="navbar-header">
             <a href="index.html" class="pull-left visible-md visible-lg">
@@ -50,13 +50,17 @@
                 <a ui-sref="public.menu">
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
+              <li id="navMenuButton" ui-sref-active="active">
+                <a ui-sref="public.search">
+                  <span class="glyphicon glyphicon-zoom-in"></span><br class="hidden-xs"> Search</a>
+              </li>
               <li ui-sref-active="active">
                 <a ui-sref="public.registeredInfo">
                   <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs">My Info</a>
               </li>
               <li ui-sref-active="active">
                 <a ui-sref="public.signup">
-                  <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign Up</a>
+                  <span class="glyphicon glyphicon-user"></span><br class="hidden-xs"> Sign Up</a>
               </li>
               <li id="phone" class="hidden-xs">
                 <a href="tel:410-602-5008">
@@ -117,7 +121,7 @@
         </div>
         <div class="text-center">
           &copy; Copyright David Chu's China Bistro 2016 |
-          <a ui-sref="admin.auth">Admin</a></div>
+          <a ui-sref="admin.auth">Pavel Kovalchuk</a></div>
       </div>
     </footer>
 
@@ -145,6 +149,10 @@
     <script src="src/public/menu-item/menu-item.component.js"></script>
     <script src="src/public/signup/sign-up.controller.js"></script>
     <script src="src/public/registeredInfo/registered-info.controller.js"></script>
+    
+    <script src="src/public/search/search-info.controller.js"></script>
+    <script src="src/public/search/directives/foundItems/foundItems.directive.js"></script>
+    <script src="src/public/search/directives/foundItems/found-items.controller.js"></script>
     
     <script src="src/public/plugins/featured-menu-items.directive.js"></script>
     <script src="src/public/plugins/featured-menu-items.controller.js"></script>

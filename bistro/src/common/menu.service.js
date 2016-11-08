@@ -69,6 +69,28 @@ function MenuService($http, ApiPath) {
      
   };
   
+  service.getAllMenuItems = function () {
+   
+    return $http.get(ApiPath + '/menu_items.json').then(function (response) {
+      return response.data;
+    });
+  };
+  
+  service.findItemsByTerm = function(data, searchTerm){
+        
+        var result = [];
+        
+        for (var i = 0; i < data.length; i++) {
+            var description = data[i].description;
+           
+            if (description.toLowerCase().indexOf(searchTerm) !== -1) {
+               result.push(data[i]);
+            }
+        }
+        
+        return result;
+    };
+  
   
 
 }

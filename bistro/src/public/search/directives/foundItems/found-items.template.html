@@ -1,0 +1,48 @@
+
+<div class="row col-sm-12">
+    <h3 ng-if="foundList.quantity > 0">Result: {{foundList.quantity}} items</h3>
+     
+    <div ng-if="foundList.quantity > 0" class="col-sm-10 col-sm-offset-1">
+        <table class="table table-hover">
+        
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Index</th>
+                <th>Price</th>
+                <th>Portion name</th>
+                <th>Action</th>
+                
+            </tr>
+        
+            <tr ng-repeat="item in foundList.items | orderBy:foundList.sortParam">
+
+              <td>{{ $index + 1 }}</td>
+                
+              <td>{{ item.name }}</td>
+
+              <td>{{ item.description }}</td> 
+
+              <td>{{ item.short_name }}</td>
+
+              <td>{{ item.price_large | currency:"USD$" }}</td> 
+
+              <td>{{ item.large_portion_name }}</td> 
+
+              <td><button class="btn btn-danger" ng-click="foundList.removeItem({id: item.id})">Don't want this one!</button></td> 
+              
+             
+            </tr>
+        </table>
+    </div>
+    
+
+    <div class="error col-sm-4 col-sm-offset-4" ng-if="foundList.showWarningMessage">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{foundList.warningMessage}}
+        </div>
+    </div>
+
+</div>

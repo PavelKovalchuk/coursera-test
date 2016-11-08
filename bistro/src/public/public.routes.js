@@ -59,6 +59,17 @@ function routeConfig ($stateProvider) {
             }]
         }
     })
+    .state('public.search', {
+        url: '/search',
+        templateUrl: 'src/public/search/search-info.html',
+        controller: 'SearchInfoController',
+        controllerAs: 'searchCtrl',
+        resolve: {
+            AllMenuItems: ['MenuService', function ( MenuService) {
+              return MenuService.getAllMenuItems();
+            }]
+        }
+    })
     ;
 }
 })();
