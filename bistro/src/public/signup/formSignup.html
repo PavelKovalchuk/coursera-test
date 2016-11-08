@@ -1,0 +1,146 @@
+
+<div class="container container-full">
+    
+    <div class="col-sm-8 col-sm-offset-2">
+        <h1 class="header-info">We care about your opinion</h1>
+        
+        <form class="form-horizontal" name='signUpForm' novalidate>
+            
+            <div class="form-group">
+              <label for="firstName" class="col-sm-2 control-label">First Name</label>
+              <div class="col-sm-10">
+                
+                <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name"
+                    ng-model="signUpCtrl.user.firstName"
+                    required
+                    minlength="4"
+                    ng-maxlength="10"
+                >
+                
+              
+                <span class="danger-info"
+                    ng-if="(signUpForm.firstName.$error.minlength || signUpForm.firstName.$error.required) 
+                                && signUpForm.firstName.$touched && signUpForm.firstName.$dirty" >
+                    First Name must be at least 4 characters long
+                </span>
+                
+                <span class="danger-info" ng-if="signUpForm.firstName.$touched && signUpForm.firstName.$pristine">
+                    Did you forget something?
+                </span>
+                
+                <span class="danger-info" ng-if="signUpForm.firstName.$error.maxlength && signUpForm.firstName.$touched">
+                    First Name must not be longer than 10 characters
+                </span>
+                
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name"
+                    ng-model="signUpCtrl.user.lastName"
+                    required
+                    minlength="4"
+                    ng-maxlength="10"
+                >
+                
+               
+                <span class="danger-info"
+                    ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required) 
+                                && signUpForm.lastName.$touched && signUpForm.lastName.$dirty">
+                    Last Name must be at least 4 characters long
+                </span>
+                
+                <span class="danger-info" ng-if="signUpForm.lastName.$touched && signUpForm.lastName.$pristine">
+                    Did you forget something?
+                </span>
+                
+                <span class="danger-info" 
+                      ng-if="signUpForm.lastName.$error.maxlength && signUpForm.lastName.$touched">
+                    Last Name must not be longer than 10 characters
+                </span>
+                
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                ng-model="signUpCtrl.user.email"
+                required
+                >
+                
+                <span class="danger-info" ng-if="signUpForm.email.$invalid && signUpForm.email.$touched && signUpForm.email.$dirty">
+                    Must be a valid email address: handle@domain format
+                </span>
+                
+                <span class="danger-info" ng-if="signUpForm.email.$touched && signUpForm.email.$pristine">
+                    Did you forget something?
+                </span>
+                
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <label for="phoneNumber" class="col-sm-2 control-label">Phone Number</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone #-##-###"
+                ng-model="signUpCtrl.user.phoneNumber"
+                pattern="(\d{1})-(\d{2})-(\d{3})"
+                required
+                >
+                
+                <span class="danger-info" ng-if="signUpForm.phoneNumber.$invalid && signUpForm.phoneNumber.$touched && signUpForm.phoneNumber.$dirty">
+                    Phone must be in the format #-##-###.
+                </span>
+                
+                <span class="danger-info" ng-if="signUpForm.phoneNumber.$touched && signUpForm.phoneNumber.$pristine">
+                    Did you forget something?
+                </span>
+                
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="favoriteDish" class="col-sm-2 control-label">Favorite Dish</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="signUpCtrl.user.favoriteDish" required 
+                       name="favoriteDish" id="favoriteDish" 
+                       placeholder="specify the short name, for example C2"
+                       ng-blur="signUpCtrl.checkFavoriteDish()"
+                >
+                
+                <span class="danger-info" ng-if="signUpForm.favoriteDish.$touched && signUpForm.favoriteDish.$pristine">
+                    Did you forget something?
+                </span>
+                
+                <span class="danger-info" ng-if="signUpCtrl.displayItemMessage">
+                    {{signUpCtrl.itemMessage}}
+                </span>
+              
+              </div>
+            </div>
+            
+                                   
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" 
+                    ng-disabled="signUpForm.$invalid || (signUpCtrl.existFavoriteDish == false)"   
+                    ng-click="signUpCtrl.submit()">
+                    Submit
+                </button>
+                  
+                <span class="success-info" ng-if="signUpCtrl.displayFinishMessage">
+                    {{signUpCtrl.finishMessage}}
+                     <a ui-sref="public.registeredInfo">{{signUpCtrl.regInfoLink}}</a>
+                </span>
+              </div>
+            </div>
+            
+        </form>
+        
+    </div>
+    
+</div>

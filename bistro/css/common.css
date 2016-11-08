@@ -1,0 +1,79 @@
+.loading-indicator {
+    display: block;
+    width: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 40%;
+    z-index: 100;
+    background-color: #FFF;
+}
+
+.loading-indicator img {
+    width: 70px;
+    background-color: #FFF;
+}
+
+.ui-view-placeholder {
+    margin-top: 60px;
+}
+
+
+input.ng-invalid {
+    background-color: pink;
+}
+input.ng-valid {
+    background-color: lightgreen;
+}
+input.ng-pristine {
+    background-color: whitesmoke;
+}
+
+.danger-info{
+    background-color: #909210;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.success-info{
+    background-color: #30a479;
+    font-style: italic;
+    font-weight: 700;
+    
+}
+
+.user-info{
+    color: #61122f;
+}
+
+.header-info{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.block-info{
+    font-size: 1.2em;
+    font-weight: 600;
+   
+}
+
+a{
+    color:#db3770;
+}
+
+.line-info{
+    border: 1px solid darkgray;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.container-full.container{
+    width: 100%;
+}
+
+.navbar-default #nav-list.navbar-nav>.active>a{
+    background-color: #4dd545;
+    color: black;
+}
+

@@ -1,0 +1,101 @@
+<div class="container container-full">
+    
+    <div class="col-sm-8 col-sm-offset-2">
+       
+        <div class="panel panel-success user-info" ng-if="infoCtrl.user">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{infoCtrl.infoHeading}}</h3>
+            </div>
+            
+            <div class="panel-body">
+                               
+                <table class="table table-striped">
+                    
+                    <tr>
+                        <td>First Name</td><td>{{infoCtrl.user.firstName}}</td>                        
+                    </tr>
+                    
+                    <tr>
+                        <td>Last Name</td><td>{{infoCtrl.user.lastName}}</td>                        
+                    </tr>
+                    
+                    <tr>
+                        <td>Email</td><td>{{infoCtrl.user.email}}</td>                        
+                    </tr>
+                    
+                    <tr>
+                        <td>Phone Number</td><td>{{infoCtrl.user.phoneNumber}}</td>                        
+                    </tr>
+                    
+                    <tr>
+                        <td>Favorite Dish</td><td>{{infoCtrl.user.favoriteDish}}</td>                        
+                    </tr>
+                    
+                </table>
+                
+                <div class="media">
+                    <div class="media-left">
+                        
+                        <img class="media-object " ng-src="{{infoCtrl.apiPath}}/images/{{infoCtrl.user.data.short_name}}.jpg" alt="{{infoCtrl.user.data.name}}">
+                     
+                    </div>
+                    <div class="media-body">
+                      
+                        <h4 class="header-info">{{infoCtrl.user.data.name}}</h4>
+                        <div class="col-sm-12 line-info">
+                            <div class="col-sm-4 block-info">Description</div>
+                            <div class="col-sm-8">{{infoCtrl.user.data.description}}</div>
+                        </div>
+                        <div class="col-sm-12 line-info">
+                            <div class="col-sm-4 block-info">Category</div>
+                            <div class="col-sm-8" ng-init="infoCtrl.getCategoryData(infoCtrl.user.data.category_short_name)">
+                                <a ui-sref="public.menuitems({category: infoCtrl.user.data.category_short_name})" ng-if="infoCtrl.CategoryData">{{infoCtrl.CategoryData.name}}</a>
+                            </div>
+                                
+                        </div>
+                        <div class="col-sm-12 line-info" ng-if="infoCtrl.user.data.small_portion_name">
+                            <div class="col-sm-4 block-info">Price for {{infoCtrl.user.data.small_portion_name}}</div>
+                            <div class="col-sm-8">{{infoCtrl.user.data.price_small | currency:"USD$"}}</div>
+                        </div>
+                        <div class="col-sm-12 line-info" ng-if="infoCtrl.user.data.large_portion_name">
+                            <div class="col-sm-4 block-info">Price for {{infoCtrl.user.data.large_portion_name}}</div>
+                            <div class="col-sm-8">{{infoCtrl.user.data.price_large | currency:"USD$"}}</div>
+                        </div>
+                        
+                        <div class="col-sm-12 line-info" ng-if="!infoCtrl.user.data.small_portion_name">
+                            <div class="col-sm-4 block-info">Price </div>
+                            <div class="col-sm-8">{{infoCtrl.user.data.price_large | currency:"USD$"}}</div>
+                        </div>
+                                             
+                    </div>
+                </div>
+                
+            </div>
+            
+                       
+        </div>
+        
+        
+        <div class="panel panel-danger user-info" ng-if="!infoCtrl.user">
+            <div class="panel-heading">
+              <h3 class="panel-title"> {{infoCtrl.noInfoHeading }}</h3>
+            </div>
+            
+            <div class="panel-body">
+                <p>
+                    {{infoCtrl.noInfoMessage }}
+                    <a ui-sref="public.signup">{{infoCtrl.signUpLink}}</a>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="col-sm-12" ng-if="infoCtrl.user">
+        <featured-menu-items category="infoCtrl.user.data.category_short_name"></featured-menu-items>
+    </div>
+    
+    
+   
+    
+</div>
