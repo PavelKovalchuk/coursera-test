@@ -18,7 +18,7 @@
 
     <header>
       <nav id="header-nav" class="navbar navbar-default">
-        <div class="container">
+        <div class="container container-full container-header">
           <div class="navbar-header">
             <a href="index.html" class="pull-left visible-md visible-lg">
               <div id="logo-img" alt="Logo image"></div>
@@ -42,9 +42,9 @@
 
           <div id="collapsable-nav" class="collapse navbar-collapse">
             <ul id="nav-list" class="nav navbar-nav navbar-right">
-              <li id="navHomeButton" class="visible-xs">
-                <a href="index.html">
-                  <span class="glyphicon glyphicon-home"></span> Home</a>
+              <li id="navHomeButton" ui-sref-active="active">
+                <a ui-sref="public.home">
+                  <span class="glyphicon glyphicon-home"></span><br class="hidden-xs"> Home</a>
               </li>
               <li id="navMenuButton" ui-sref-active="active">
                 <a ui-sref="public.menu">
@@ -76,11 +76,22 @@
     </div>
     <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
 
-    <ui-view>
-      <div class="text-center initial-loading">
-        <h2>Loading Site...</h2>
-      </div>
-    </ui-view>
+    
+    <div class="container container-full">
+    
+        <div class="col-sm-2">
+           <side-menu-list></side-menu-list>
+        </div>
+    
+        <div class="col-sm-10">
+            <ui-view>
+                <div class="text-center initial-loading">
+                    <h2>Loading Site...</h2>
+                </div>
+            </ui-view>
+        </div>
+        
+    </div>
 
     <footer class="panel-footer">
       <div class="container">
@@ -137,6 +148,9 @@
     
     <script src="src/public/plugins/featured-menu-items.directive.js"></script>
     <script src="src/public/plugins/featured-menu-items.controller.js"></script>
+    
+    <script src="src/public/plugins/side-menu/sideMenu.directive.js"></script>
+    <script src="src/public/plugins/side-menu/sideMenuList.controller.js"></script>
     
 
     <!-- ADMIN SITE -->

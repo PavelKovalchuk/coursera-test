@@ -1,0 +1,12 @@
+<h2 class="header-info">Categories</h2>
+
+<div ng-init="sideLlist.getCategoriesItems()" class="list-group">
+   
+    <a ng-repeat="item in sideLlist.items" 
+       class="list-group-item" 
+       ui-sref="public.menuitems({category: item.short_name})" 
+       ui-sref-active="active">
+        {{item.name}}
+    </a>
+   
+</div>

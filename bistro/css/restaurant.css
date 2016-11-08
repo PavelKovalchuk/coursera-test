@@ -120,6 +120,41 @@ a[ui-sref="admin.auth"] {
 }
 /* END FOOTER */
 
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+   background-color: #d7f417;
+    border-color: #d7f417;
+    color: black;
+}
+
+.container.container-full .jumbotron{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.list-group-item{
+    background-color: #4dd545;
+    border: 1px solid #d7f417;
+    
+}
+
+a.list-group-item{
+    color: #fff;
+}
+
+.container-header{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+
+
+
+
+
+
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
   /* Header */
