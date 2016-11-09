@@ -174,6 +174,11 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, 
     color: black;
 }
 
+input.form-control.findByTerm{
+    height: 45px;
+    font-size: 1.5em;
+}
+
 
 
 
