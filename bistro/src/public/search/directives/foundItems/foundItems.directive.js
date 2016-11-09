@@ -15,7 +15,10 @@ function foundItems() {
       quantity: '<',
       searchTerm: '<',
       sortParam: '<',
-      refreshItems: '&'
+      refreshItems: '&',
+      sliderMin: '<',
+      sliderMax: '<'
+//      sliderOptions: '<'
             
     },
     controller: 'foundItemsController as foundList',

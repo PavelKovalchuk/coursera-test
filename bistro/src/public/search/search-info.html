@@ -27,7 +27,7 @@
                         
         </div>
         
-        <div ng-if="searchCtrl.quantity > 0" class="row col-sm-12">
+        <div class="row col-sm-12">
             
             <div class="col-sm-10 col-sm-offset-1">
                 
@@ -61,6 +61,19 @@
                     </div>
                 </div>
                 
+                <div class="row col-sm-12"> 
+                    <h3 class="header-info">Price range</h3>
+                    <!--  https://github.com/angular-slider/angularjs-slider  -->
+                    <rzslider 
+                        
+                        rz-slider-model="searchCtrl.slider.min"
+                        rz-slider-high="searchCtrl.slider.max"
+                        rz-slider-options="searchCtrl.slider.options"
+                    >
+                            
+                    </rzslider>
+                </div>
+                
             </div>
                        
         </div>
@@ -74,6 +87,8 @@
             search-term="searchCtrl.searchTerm"
             sort-param="searchCtrl.sortParam"
             refresh-items="searchCtrl.refreshItems"
+            slider-min="searchCtrl.slider.min"
+            slider-max="searchCtrl.slider.max"
                        
            >
                 

@@ -90,6 +90,31 @@ function MenuService($http, ApiPath) {
         
         return result;
     };
+    
+    service.findItemsByPrice = function(data, min, max){
+        
+        if (!isNumeric(min) || !isNumeric(max)){
+             return;
+        }
+        
+        var result = [];
+        
+        for (var i = 0; i < data.length; i++) {
+            var price = data[i].price_large;
+            
+            if (!isNumeric(price)){
+                 return;
+            }
+           
+            if ( price > min && price < max) {
+               result.push(data[i]);
+            }
+        }
+        
+        return result;
+        
+        
+    };
   
   
 
