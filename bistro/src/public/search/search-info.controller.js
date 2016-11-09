@@ -173,7 +173,10 @@ function SearchInfoController(ApiPath, AllMenuItems, menuCategories, MenuService
                     searchCtrl.slider.max = searchCtrl.maxPrice;
                     
                     searchCtrl.quantity = searchCtrl.items.length;
+                    
                     searchCtrl.searchTerm = '';
+                    
+                    searchCtrl.selectedCat = false;
                     
                 }
             );
