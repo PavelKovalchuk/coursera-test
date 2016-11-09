@@ -23,25 +23,50 @@
              </div>
 
         </div>
-         
         
+        <div class="row form-group">
+            <label for="categorySelect" class="col-sm-3 control-label">Search by category</label>
+            <div class="col-sm-6">
+                <select 
+                    name="categorySelect"
+                    id="categorySelect"
+                    ng-model="searchCtrl.selectedCat"
+                    ng-options="x.name for x in searchCtrl.categories"
+                    ng-change="searchCtrl.filterCategory()" 
+                    class="form-control">
+                     <option value="">---Please select category---</option>
+               
+                </select>
+            </div>
+          
+        </div>
+         
+       
         <div class="row">
             <h3 class="header-info">Sort (ascendant)</h3>
             
             <div class="col-sm-3">
-                 <button type="button" ng-click="searchCtrl.changeSortParam('name')" class="btn btn-default btn-lg btn-block button-filter">By name</button>
+                 <button type="button" ng-click="searchCtrl.changeSortParam('name')" class="btn btn-default btn-lg btn-block button-filter">
+                      <span class="glyphicon glyphicon-arrow-up"></span> By name
+                 </button>
             </div>
             
             <div class="col-sm-3">
-                <button type="button" ng-click="searchCtrl.changeSortParam('short_name')" class="btn btn-default btn-lg btn-block button-filter">By category</button>
+                <button type="button" ng-click="searchCtrl.changeSortParam('short_name')" class="btn btn-default btn-lg btn-block button-filter">
+                    <span class="glyphicon glyphicon-arrow-up"></span> By category
+                </button>
             </div>
             
             <div class="col-sm-3">
-                 <button type="button" ng-click="searchCtrl.changeSortParam('price_large')" class="btn btn-default btn-lg btn-block button-filter">By price</button>
+                 <button type="button" ng-click="searchCtrl.changeSortParam('price_large')" class="btn btn-default btn-lg btn-block button-filter">
+                     <span class="glyphicon glyphicon-arrow-up"></span> By price
+                 </button>
             </div>
             
              <div class="col-sm-3">
-                <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name')" class="btn btn-default btn-lg btn-block button-filter">By portion name</button>
+                <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name')" class="btn btn-default btn-lg btn-block button-filter">
+                    <span class="glyphicon glyphicon-arrow-up"></span> By portion name
+                </button>
             </div>
         </div>
         
@@ -49,19 +74,27 @@
              <h3 class="header-info">Sort (descending)</h3>
             
             <div class="col-sm-3">
-                <button type="button" ng-click="searchCtrl.changeSortParam('name', true)" class="btn btn-default btn-lg btn-block button-filter">By name</button>
+                <button type="button" ng-click="searchCtrl.changeSortParam('name', true)" class="btn btn-default btn-lg btn-block button-filter">
+                    <span class="glyphicon glyphicon-arrow-down"></span> By name
+                </button>
             </div>
             
             <div class="col-sm-3">
-                <button type="button" ng-click="searchCtrl.changeSortParam('short_name', true)" class="btn btn-default btn-lg btn-block button-filter">By category</button>
+                <button type="button" ng-click="searchCtrl.changeSortParam('short_name', true)" class="btn btn-default btn-lg btn-block button-filter">
+                    <span class="glyphicon glyphicon-arrow-down"></span> By category
+                </button>
             </div>
             
             <div class="col-sm-3">
-                <button type="button" ng-click="searchCtrl.changeSortParam('price_large', true)" class="btn btn-default btn-lg btn-block button-filter">By price</button>
+                <button type="button" ng-click="searchCtrl.changeSortParam('price_large', true)" class="btn btn-default btn-lg btn-block button-filter">
+                    <span class="glyphicon glyphicon-arrow-down"></span> By price
+                </button>
             </div>
             
              <div class="col-sm-3">
-                <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name', true)" class="btn btn-default btn-lg btn-block button-filter">By portion name</button>
+                <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name', true)" class="btn btn-default btn-lg btn-block button-filter">
+                    <span class="glyphicon glyphicon-arrow-down"></span> By portion name
+                </button>
             </div>
         </div>
         

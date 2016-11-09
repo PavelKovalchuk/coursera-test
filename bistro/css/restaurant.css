@@ -179,6 +179,11 @@ input.form-control.findByTerm{
     font-size: 1.5em;
 }
 
+select.form-control#categorySelect{
+    height: 45px;
+    font-size: 1.5em;
+}
+
 
 
 

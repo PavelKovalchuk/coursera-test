@@ -67,6 +67,9 @@ function routeConfig ($stateProvider) {
         resolve: {
             AllMenuItems: ['MenuService', function ( MenuService) {
               return MenuService.getAllMenuItems();
+            }],
+            menuCategories: ['MenuService', function (MenuService) {
+                return MenuService.getCategories();
             }]
         }
     })

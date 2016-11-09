@@ -3,9 +3,9 @@
 angular.module('public')
 .controller('SearchInfoController', SearchInfoController);
 
-SearchInfoController.$inject = ['ApiPath', 'AllMenuItems', 'MenuService', '$filter'];
+SearchInfoController.$inject = ['ApiPath', 'AllMenuItems', 'menuCategories', 'MenuService', '$filter'];
 
-function SearchInfoController(ApiPath, AllMenuItems, MenuService, $filter) {
+function SearchInfoController(ApiPath, AllMenuItems, menuCategories, MenuService, $filter) {
     var searchCtrl = this;
 
     searchCtrl.apiPath = ApiPath;
@@ -15,6 +15,10 @@ function SearchInfoController(ApiPath, AllMenuItems, MenuService, $filter) {
     searchCtrl.searchTerm = '';
 
     searchCtrl.quantity = AllMenuItems.menu_items.length;
+    
+    searchCtrl.categories = menuCategories;
+    
+    searchCtrl.selectedCat = false;
 
     searchCtrl.warningMessage = 'Nothing found!!!';
 
@@ -54,29 +58,70 @@ function SearchInfoController(ApiPath, AllMenuItems, MenuService, $filter) {
   
     searchCtrl.sliderOnChange = function(){
         
-        var itemsFilteredByTerm = MenuService.findItemsByTerm(AllMenuItems.menu_items, searchCtrl.searchTerm.toLowerCase());
+        var itemsFilteredByTerm = searchCtrl.getFilteredItemsByTerm();
         
-        searchCtrl.filterOnChange(itemsFilteredByTerm);
+        searchCtrl.filterPrice(itemsFilteredByTerm);
     };
+    
+    searchCtrl.getFilteredItemsByPrice = function(dataItems){
+        var data = $filter('priceFilter')(
+                                            dataItems, 
+                                            searchCtrl.slider.min, 
+                                            searchCtrl.slider.max
+                                            );
+        return data;                             
+    };
+    
+    
+    searchCtrl.getFilteredItemsByCategory = function(dataItems){
+        
+        if(!searchCtrl.selectedCat){
+            return dataItems;
+        }
+        
+        var catShortName = searchCtrl.selectedCat.short_name;
+        var data = $filter('categoryFilter')(
+                                                dataItems, 
+                                                catShortName
+                                            );
+        return data;                             
+    };
+    
+    searchCtrl.getFilteredItemsByTerm = function(){
+        var data = MenuService.findItemsByTerm(AllMenuItems.menu_items, searchCtrl.searchTerm.toLowerCase());
+        return data;                             
+    };
+    
   
-    searchCtrl.filterOnChange = function(dataItems){
+    searchCtrl.filterPrice = function(dataItems){
        
-        searchCtrl.items =  $filter('priceFilter')(
-                                                    dataItems, 
-                                                    searchCtrl.slider.min, 
-                                                    searchCtrl.slider.max
-                                                    );
+        if(searchCtrl.selectedCat){
+            dataItems = searchCtrl.getFilteredItemsByCategory(dataItems);
+        }
+        
+        searchCtrl.items =  searchCtrl.getFilteredItemsByPrice(dataItems);
         searchCtrl.quantity =  searchCtrl.items.length;
         
         searchCtrl.displayWarningMessage();
      };
+     
+  searchCtrl.filterCategory = function(dataItems){
+      if(!dataItems){
+          dataItems = searchCtrl.getFilteredItemsByTerm();
+          dataItems = searchCtrl.getFilteredItemsByPrice(dataItems);
+      }
+    searchCtrl.items = searchCtrl.getFilteredItemsByCategory(dataItems);
+    searchCtrl.quantity =  searchCtrl.items.length;
+
+    searchCtrl.displayWarningMessage();
+ };
   
 
     searchCtrl.findByTerm = function(){
         
-        var itemsFilteredByTerm = MenuService.findItemsByTerm(AllMenuItems.menu_items, searchCtrl.searchTerm.toLowerCase());
+        var itemsFilteredByTerm = searchCtrl.getFilteredItemsByTerm();
         
-        searchCtrl.filterOnChange(itemsFilteredByTerm);
+        searchCtrl.filterPrice(itemsFilteredByTerm);
         
         searchCtrl.displayWarningMessage();
         
