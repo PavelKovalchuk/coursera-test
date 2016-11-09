@@ -2,81 +2,88 @@
         
         <h1>Narrow Down Your Chinese Menu Choice</h1>
       
-        <div class="row col-sm-12">
+        
             
-            <div class="col-sm-10 col-sm-offset-1 form-group">
-                 <label for="searchTerm" class="col-sm-3 control-label">Search by description</label>
-                 <div class="col-sm-7">
-                     <input id="searchTerm" type="text" 
-                        placeholder="search term / for example: chicken" 
-                        class="form-control" 
-                        ng-model="searchCtrl.searchTerm"
-                        ng-blur="searchCtrl.findByTerm()"
-                        >
+        <div class="row form-group">
+             <label for="searchTerm" class="col-sm-3 control-label">Search by description</label>
+             <div class="col-sm-6">
+                 <input id="searchTerm" type="text" 
+                    placeholder="search term / for example: chicken" 
+                    class="form-control" 
+                    ng-model="searchCtrl.searchTerm"
+                    ng-blur="searchCtrl.findByTerm()"
+                    >
+             </div>
+             <div class="col-sm-3">
+                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button type="button" ng-click="searchCtrl.refreshItems()" class="btn btn-default btn-lg btn-block button-filter">Show all menu</button>
+                    </div>
                  </div>
-                 <div class="col-sm-2">
-                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                            <button type="button" ng-click="searchCtrl.refreshItems()" class="btn btn-default button-filter">Show all menu</button>
-                        </div>
-                     </div>
-                 </div>
-                
+             </div>
+
+        </div>
+         
+        
+        <div class="row">
+            <h3 class="header-info">Sort (ascendant)</h3>
+            
+            <div class="col-sm-3">
+                 <button type="button" ng-click="searchCtrl.changeSortParam('name')" class="btn btn-default btn-lg btn-block button-filter">By name</button>
             </div>
             
-                        
+            <div class="col-sm-3">
+                <button type="button" ng-click="searchCtrl.changeSortParam('short_name')" class="btn btn-default btn-lg btn-block button-filter">By category</button>
+            </div>
+            
+            <div class="col-sm-3">
+                 <button type="button" ng-click="searchCtrl.changeSortParam('price_large')" class="btn btn-default btn-lg btn-block button-filter">By price</button>
+            </div>
+            
+             <div class="col-sm-3">
+                <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name')" class="btn btn-default btn-lg btn-block button-filter">By portion name</button>
+            </div>
         </div>
         
-        <div class="row col-sm-12">
+        <div class="row">
+             <h3 class="header-info">Sort (descending)</h3>
             
-            <div class="col-sm-10 col-sm-offset-1">
-                
-                <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('name')" class="btn btn-default button-filter">Sort by name</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('short_name')" class="btn btn-default button-filter">Sort by category</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('price_large')" class="btn btn-default button-filter">Sort by price</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name')" class="btn btn-default button-filter">Sort by portion name</button>
-                    </div>
-                </div>
-                
-                <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('name', true)" class="btn btn-default button-filter">Sort by name in descending</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('short_name', true)" class="btn btn-default button-filter">Sort by category in descending</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('price_large', true)" class="btn btn-default button-filter">Sort by price in descending</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name', true)" class="btn btn-default button-filter">Sort by portion name in descending</button>
-                    </div>
-                </div>
-                
-                <div class="row col-sm-12"> 
-                    <h3 class="header-info">Price range</h3>
-                    <!--  https://github.com/angular-slider/angularjs-slider  -->
-                    <rzslider 
-                        
-                        rz-slider-model="searchCtrl.slider.min"
-                        rz-slider-high="searchCtrl.slider.max"
-                        rz-slider-options="searchCtrl.slider.options"
-                    >
-                            
-                    </rzslider>
-                </div>
-                
+            <div class="col-sm-3">
+                <button type="button" ng-click="searchCtrl.changeSortParam('name', true)" class="btn btn-default btn-lg btn-block button-filter">By name</button>
             </div>
-                       
+            
+            <div class="col-sm-3">
+                <button type="button" ng-click="searchCtrl.changeSortParam('short_name', true)" class="btn btn-default btn-lg btn-block button-filter">By category</button>
+            </div>
+            
+            <div class="col-sm-3">
+                <button type="button" ng-click="searchCtrl.changeSortParam('price_large', true)" class="btn btn-default btn-lg btn-block button-filter">By price</button>
+            </div>
+            
+             <div class="col-sm-3">
+                <button type="button" ng-click="searchCtrl.changeSortParam('large_portion_name', true)" class="btn btn-default btn-lg btn-block button-filter">By portion name</button>
+            </div>
         </div>
+        
+     
+        <div class="row"> 
+            
+            <h3 class="header-info">Price range</h3>
+            <!--  https://github.com/angular-slider/angularjs-slider  -->
+            <rzslider 
+
+                rz-slider-model="searchCtrl.slider.min"
+                rz-slider-high="searchCtrl.slider.max"
+                rz-slider-options="searchCtrl.slider.options"
+            >
+
+            </rzslider>
+            
+        </div>
+                
+        
+                       
+       
         
         <found-items 
             items="searchCtrl.items" 

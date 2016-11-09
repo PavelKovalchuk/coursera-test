@@ -181,13 +181,35 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, 
 
 
 /********** Medium devices only **********/
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 767px) and (max-width: 1199px) {
   /* Header */
   #logo-img {
     background: url('../images/restaurant-logo_medium.png') no-repeat;
-    width: 100px;
-    height: 100px;
-    margin: 5px 5px 5px 0;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    margin: 15px 5px 5px 0;
+  }
+  
+  #nav-list a span{
+      font-size: 1.0em;
+  }
+  
+  .navbar-brand p{
+    font-size: .7em;
+    margin-top: 5px;
+  }
+  
+  #kosher-logo{
+      width: 20px;
+  }
+  
+  .navbar-brand h1{
+      font-size: 1.0em;
+  }
+  
+  #nav-list a{
+      padding: 7px;
   }
   /* End Header */
 }
