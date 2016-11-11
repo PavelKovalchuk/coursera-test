@@ -82,22 +82,49 @@
     <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
 
     
-    <div class="container container-full">
-        <div class="row">
-    
-        <div class="col-sm-2">
-           <side-menu-list></side-menu-list>
-        </div>
-    
-        <div class="col-sm-10">
-            <ui-view>
-                <div class="text-center initial-loading">
-                    <h2>Loading Site...</h2>
+    <div id="main-container" >
+        <div class="container container-full" >
+                <div class="row">
+                    
+                        <div id="sidebar">
+
+                            <side-menu-list></side-menu-list>
+                        </div>
+                    
+                    
+        
+        
+                
+                    <div class="col-sm-12 main-content">
+                        <button data-toggle="#main-container" id="sidebar-toggle">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </button>
+
+                        <div class="content">
+                            <ui-view>
+                                <div class="text-center initial-loading">
+                                    <h2>Loading Site...</h2>
+                                </div>
+                            </ui-view>
+                        </div>
+
+                    </div>
+                    
+                    <div style="clear:both;"></div>
+
                 </div>
-            </ui-view>
-        </div>
-        </div>
-    </div>
+                
+                
+           
+        </div> 
+    
+       
+    </div>        
+            
+        
+    
 
     <footer class="panel-footer">
       <div class="container">
@@ -141,6 +168,8 @@
     <script src="src/common/loading/loading.component.js"></script>
     <script src="src/common/loading/loading.interceptor.js"></script>
     <script src="src/common/menu.service.js"></script>
+    
+    <script src="src/common/sidebar/toggle.js"></script>
 
     <!-- Public Module -->
     <script src="src/public/public.module.js"></script>
