@@ -1,0 +1,106 @@
+
+<main id="main" role="main">
+    <div id="content">
+        <div class="container">
+            <div class="news-holder">
+
+           
+ 
+                <h1 ng-if="content.lang === 'en' ">
+                     <a href="{{content.currentCatalogLink}}">ALL NEWS</a> 
+                </h1>
+                <h1 ng-if="content.lang === 'de' ">
+                     <a href="{{content.currentCatalogLink}}">ALLE NEUIGKEITEN</a> 
+                </h1>
+                
+                
+                <ul ng-if="content.lang === 'en' ">
+                        <li><span>EN</span></li>
+                        <li><a ui-sref="post_DE({year: content.post.permalink_data.permalink_year, 
+                                                month: content.post.permalink_data.permalink_month, 
+                                                slug: content.post.translation_post.post_translated_slug})" 
+                               ui-sref-active="activeLink" 
+                               ng-click="content.changeLanguage({newLang: 'de'})">DE</a>
+                        </li>
+                </ul>
+
+                <ul ng-if="content.lang === 'de' ">
+                        <li><a ui-sref="post_EN({year: content.post.permalink_data.permalink_year, 
+                                        month: content.post.permalink_data.permalink_month, 
+                                        slug: content.post.translation_post.post_translated_slug})" 
+                               ui-sref-active="activeLink"
+                               ng-click="content.changeLanguage({newLang: 'en'})">EN</a>
+                        </li>
+                        <li><span>DE</span></li>
+                </ul>
+
+                                <h1 class="h3 title-post" ng-bind-html="content.post.title.rendered | toTrusted"></h1>
+
+                <div class="page-post">
+                    
+                    <div class="single-post-thumbnail" ng-if="content.post.featured_image_thumbnail_url">
+                        <a class="gallery-item" href="{{content.post.featured_image_thumbnail_url}}" data-effect="mfp-zoom-in">
+                            <img class="img-responsive" ng-src="{{content.post.featured_image_thumbnail_url}}" alt="proMX">
+                        </a>
+                    </div>
+                    
+                    <div ng-bind-html="content.post.content.rendered | toTrusted"></div>
+                </div>
+
+
+
+
+                <div class="text-row">
+                    <div class="col" style="text-align: left;" ng-if="content.prevPostData">
+
+                        <a class="btn"
+                            ui-sref="{{content.postPath}}({year: content.prevPostData.permalink_data.permalink_year, 
+                                                    month: content.prevPostData.permalink_data.permalink_month, 
+                                                    slug: content.prevPostData.slug})"> 
+                            <center>
+                                <span ng-bind-html="content.prevPostData.title | toTrusted"></span><br> 
+                                <span>PREV POST</span>
+                            </center>
+                        </a>
+                        <br>
+                        <button class="btn" ng-click="content.showPrevPostExcerpt()">
+                            Preview
+                        </button>
+                        
+                        <div ng-if="content.prevPostExcerpt">
+                            <div ng-bind-html="content.prevPostData.excerpt | toTrusted"></div>
+                        </div>
+                            
+                        
+
+                    </div>
+
+                    <div class="col" style="text-align: right;" ng-if="content.nextPostData">
+                        
+                        <a class="btn"
+                            ui-sref="{{content.postPath}}({year: content.nextPostData.permalink_data.permalink_year, 
+                                                    month: content.nextPostData.permalink_data.permalink_month, 
+                                                    slug: content.nextPostData.slug})"> 
+                            <center>
+                                <span ng-bind-html="content.nextPostData.title | toTrusted"></span><br> 
+                                <span>NEXT POST</span>
+                            </center>
+                        </a>
+                        <br>
+                        <button class="btn" ng-click="content.showNextPostExcerpt()">
+                            Preview
+                        </button>
+                        
+                        <div ng-if="content.nextPostExcerpt">
+                            <div ng-bind-html="content.nextPostData.excerpt | toTrusted"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+   
+            </div>
+        </div>
+   </div>
+</main>

@@ -1,0 +1,15 @@
+<div class="posts-nav-link btn-holder">
+	<a ng-if="navLink.currentPage > 1" 
+           ui-sref="{{navLink.data.prevLink}}" 
+           class="prev-link">
+            <span class="meta-nav">←</span>{{navLink.data.prevLabel}}
+        </a>
+    
+	<span ng-if="navLink.currentPage > 1 && navLink.currentPage < navLink.totalPages" class="sep">{{navLink.data.sep}}</span>
+	
+        <a ng-if="navLink.currentPage < navLink.totalPages" 
+           ui-sref="{{navLink.data.nextLink}}" 
+           class="next-link">
+            <span class="meta-nav">→</span>{{navLink.data.nextLabel}}
+        </a>
+</div>
